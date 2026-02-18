@@ -13,8 +13,8 @@ console.log("========================");
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.ghostwriterlab.it",
-  base: "/",
+  site: "https://michaelmammoliti.github.io",
+  base: "/main",
   publicDir: "public",
   outDir: "dist",
   trailingSlash: "never",
