@@ -124,6 +124,8 @@ const PortfolioItem = ({
     };
   }, [isVideo]);
 
+  const newAssets = assets.slice(1);
+
   return (
     <div className={styles.PortfolioItem} ref={elRef}>
       {asset.type === "video" ? (
@@ -138,7 +140,9 @@ const PortfolioItem = ({
         <div>
           <h2>{title}</h2>
           <Stats items={stats} />
-          <Thumbnails items={assets} onClick={onThumbnailClick} />
+          {!!newAssets.length && (
+            <Thumbnails items={newAssets} onClick={onThumbnailClick} />
+          )}
         </div>
       </div>
     </div>
@@ -194,7 +198,7 @@ export const FullScreenHero = () => {
 
         {typeof activeAssetIndex === "number" && (
           <Gallery
-            assets={portfolioItems[activeItemIndex].assets}
+            assets={portfolioItems[activeItemIndex].assets.slice(1)}
             activeAssetIndex={activeAssetIndex}
             onClose={() => setActiveAssetIndex(undefined)}
             onChange={(index) => setActiveAssetIndex(index)}

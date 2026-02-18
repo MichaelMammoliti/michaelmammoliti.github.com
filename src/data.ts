@@ -256,6 +256,16 @@ const braunrazor: PortfolioItem = {
       alt: "Placeholder Image",
       title: "Placeholder Image",
     },
+    {
+      type: "video",
+      src: assets.braunrazor.desktop.video,
+      thumbnail: {
+        src: assets.braunrazor.desktop.thumbnail,
+        alt: "Braun Series 9 Pro+",
+      },
+      alt: "Braun Series 9 Pro+",
+      title: "Braun Series 9 Pro+",
+    },
   ],
   stats: [
     { label: "Clients", value: "12" },
@@ -298,6 +308,16 @@ const whiskas: PortfolioItem = {
       alt: "Placeholder Image",
       title: "Placeholder Image",
     },
+    {
+      type: "video",
+      src: getAsset("whiskas-desktop.mp4"),
+      thumbnail: {
+        src: assets.whiskas.thumbnail,
+        alt: "Whiskas Desktop Thumbnail",
+      },
+      alt: "Whiskas Desktop",
+      title: "Whiskas Desktop",
+    },
   ],
   stats: [
     { label: "Clients", value: "12" },
@@ -316,8 +336,18 @@ const cocacola: PortfolioItem = {
         src: assets.cocacola.thumbnail,
         alt: "Coca-Cola Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "Coca-Cola Homepage",
+      title: "Coca-Cola Homepage",
+    },
+    {
+      type: "image",
+      src: getAsset("cocacola-2.jpg"),
+      thumbnail: {
+        src: getAsset("cocacola-2.jpg"),
+        alt: "Coca-Cola Second Image Thumbnail",
+      },
+      alt: "Coca-Cola Second Image",
+      title: "Coca-Cola Second Image",
     },
   ],
   stats: [
@@ -330,11 +360,11 @@ const cocacola: PortfolioItem = {
 export const portfolioItems: PortfolioItem[] = [
   braunrazor,
   gillette,
-  enterogermina,
-  appleswitcher,
-  loreal,
-  braunipl,
-  sheebahope,
   whiskas,
+  braunipl,
+  appleswitcher,
   cocacola,
+  loreal,
+  sheebahope,
+  enterogermina,
 ];

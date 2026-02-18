@@ -23,11 +23,14 @@ const ImageIcon = () => (
 );
 
 const CloseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24">
-    <path
-      fill="currentColor"
-      d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59Z"
-    ></path>
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M10.1923 0.29287C10.5828 -0.0976388 11.2158 -0.0976078 11.6063 0.29287C11.9969 0.683394 11.9969 1.31641 11.6063 1.70693L7.36318 5.94912L11.6063 10.1923C11.9968 10.5828 11.9968 11.2158 11.6063 11.6063C11.2158 11.9969 10.5828 11.9969 10.1923 11.6063L5.94912 7.36318L1.70693 11.6063C1.31641 11.9969 0.683394 11.9969 0.29287 11.6063C-0.0976081 11.2158 -0.0976387 10.5828 0.29287 10.1923L4.53506 5.94912L0.29287 1.70693C-0.0975786 1.3164 -0.0976289 0.683369 0.29287 0.29287C0.683376 -0.0975539 1.31643 -0.097554 1.70693 0.29287L5.94912 4.53506L10.1923 0.29287Z" />
   </svg>
 );
 
@@ -81,14 +84,26 @@ export const Gallery = ({
     return blockScroll();
   }, []);
 
-  console.log(assets);
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <div className={styles.Gallery}>
       <div className={styles.GalleryWrapper}>
         <div className={styles.GalleryContent}>
           {asset.type === "video" ? (
-            <video controls key={asset.src}>
+            <video controls autoPlay muted key={asset.src}>
               <source src={asset.src} type="video/mp4" />
             </video>
           ) : (
