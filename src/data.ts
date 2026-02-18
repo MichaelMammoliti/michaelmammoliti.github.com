@@ -6,7 +6,11 @@ const githubUrl = "michaelmammoliti.github.io";
 const githubBranch = "main";
 const githubBaseUrl = `https://raw.githubusercontent.com/${githubUrl}/${githubBranch}/public`;
 const getAsset = (src: string) => {
-  return `${githubBaseUrl}/${src}`;
+  if (import.meta.env.DEV) {
+    return `/${src}`;
+  }
+
+  return `/${src}`;
 };
 
 const assets = {
