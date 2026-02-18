@@ -14,7 +14,7 @@ console.log("========================");
 // https://astro.build/config
 export default defineConfig({
   site: "https://michaelmammoliti.github.io",
-  base: import.meta.env.PROD ? "/michaelmammoliti.github.io/" : "/",
+  base: import.meta.env.PROD ? "/" : "/",
   publicDir: "public",
   outDir: "dist",
   trailingSlash: "never",
