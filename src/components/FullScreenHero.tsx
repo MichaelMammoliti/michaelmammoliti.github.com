@@ -135,9 +135,11 @@ const PortfolioItem = ({
       )}
       <div className={styles.PortfolioItemOverlay} />
       <div className={styles.PortfolioItemContent}>
-        <h2>{title}</h2>
-        <Stats items={stats} />
-        <Thumbnails items={assets} onClick={onThumbnailClick} />
+        <div>
+          <h2>{title}</h2>
+          <Stats items={stats} />
+          <Thumbnails items={assets} onClick={onThumbnailClick} />
+        </div>
       </div>
     </div>
   );
