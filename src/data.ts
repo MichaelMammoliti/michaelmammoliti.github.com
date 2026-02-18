@@ -2,105 +2,112 @@ import type { PortfolioItem } from "./types";
 
 export const menuItems = ["Home", "Portfolio", "Contacts", "About"];
 
+const githubUrl = "michaelmammoliti.github.io";
+const githubBranch = "main";
+const githubBaseUrl = `https://raw.githubusercontent.com/${githubUrl}/${githubBranch}`;
+const getAsset = (src: string) => {
+  return `${githubBaseUrl}/${src}`;
+};
+
 const assets = {
   gillette: {
     desktop: {
-      video: "./public/gillette-desktop.mp4",
-      thumbnail: "./public/gillette-desktop-thumb.png",
+      video: getAsset("gillette-desktop.mp4"),
+      thumbnail: getAsset("gillette-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/gillette-mobile.mp4",
-      thumbnail: "./public/gillette-mobile-thumb.png",
+      video: getAsset("gillette-mobile.mp4"),
+      thumbnail: getAsset("gillette-mobile-thumb.png"),
     },
-    thumbnail: "./public/gillette-homepage.jpg",
+    thumbnail: getAsset("gillette-homepage.jpg"),
   },
   enterogermina: {
     desktop: {
-      video: "./public/enterogermina-desktop.mp4",
-      thumbnail: "./public/enterogermina-desktop-thumb.png",
+      video: getAsset("enterogermina-desktop.mp4"),
+      thumbnail: getAsset("enterogermina-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/enterogermina-mobile.mp4",
-      thumbnail: "./public/enterogermina-mobile-thumb.png",
+      video: getAsset("enterogermina-mobile.mp4"),
+      thumbnail: getAsset("enterogermina-mobile-thumb.png"),
     },
-    thumbnail: "./public/enterogermina-homepage.jpg",
+    thumbnail: getAsset("enterogermina-homepage.jpg"),
   },
   appleswitcher: {
     desktop: {
-      video: "./public/appleswitcher-desktop.mp4",
-      thumbnail: "./public/appleswitcher-desktop-thumb.png",
+      video: getAsset("appleswitcher-desktop.mp4"),
+      thumbnail: getAsset("appleswitcher-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/appleswitcher-mobile.mp4",
-      thumbnail: "./public/appleswitcher-mobile-thumb.png",
+      video: getAsset("appleswitcher-mobile.mp4"),
+      thumbnail: getAsset("appleswitcher-mobile-thumb.png"),
     },
-    thumbnail: "./public/appleswitcher-homepage.jpg",
+    thumbnail: getAsset("appleswitcher-homepage.jpg"),
   },
   loreal: {
     desktop: {
-      video: "./public/loreal-desktop.mp4",
-      thumbnail: "./public/loreal-desktop-thumb.png",
+      video: getAsset("loreal-desktop.mp4"),
+      thumbnail: getAsset("loreal-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/loreal-mobile.mp4",
-      thumbnail: "./public/loreal-mobile-thumb.png",
+      video: getAsset("loreal-mobile.mp4"),
+      thumbnail: getAsset("loreal-mobile-thumb.png"),
     },
-    thumbnail: "./public/loreal-homepage.jpg",
+    thumbnail: getAsset("loreal-homepage.jpg"),
   },
   braunipl: {
     desktop: {
-      video: "./public/braunipl-desktop.mp4",
-      thumbnail: "./public/braunipl-desktop-thumb.png",
+      video: getAsset("braunipl-desktop.mp4"),
+      thumbnail: getAsset("braunipl-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/braunipl-mobile.mp4",
-      thumbnail: "./public/braunipl-mobile-thumb.png",
+      video: getAsset("braunipl-mobile.mp4"),
+      thumbnail: getAsset("braunipl-mobile-thumb.png"),
     },
-    thumbnail: "./public/braunipl-homepage.jpg",
+    thumbnail: getAsset("braunipl-homepage.jpg"),
   },
   braunrazor: {
     desktop: {
-      video: "./public/braunrazor-desktop.mp4",
-      thumbnail: "./public/braunrazor-desktop-thumb.png",
+      video: getAsset("braunrazor-desktop.mp4"),
+      thumbnail: getAsset("braunrazor-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/braunrazor-mobile.mp4",
-      thumbnail: "./public/braunrazor-mobile-thumb.png",
+      video: getAsset("braunrazor-mobile.mp4"),
+      thumbnail: getAsset("braunrazor-mobile-thumb.png"),
     },
-    thumbnail: "./public/braunrazor-homepage.jpg",
+    thumbnail: getAsset("braunrazor-homepage.jpg"),
   },
   sheebahope: {
     desktop: {
-      video: "./public/sheebahope-desktop.mp4",
-      thumbnail: "./public/sheebahope-desktop-thumb.png",
+      video: getAsset("sheebahope-desktop.mp4"),
+      thumbnail: getAsset("sheebahope-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/sheebahope-mobile.mp4",
-      thumbnail: "./public/sheebahope-mobile-thumb.png",
+      video: getAsset("sheebahope-mobile.mp4"),
+      thumbnail: getAsset("sheebahope-mobile-thumb.png"),
     },
-    thumbnail: "./public/sheebahope-homepage.jpg",
+    thumbnail: getAsset("sheebahope-homepage.jpg"),
   },
   whiskas: {
     desktop: {
-      video: "./public/whiskas-desktop.mp4",
-      thumbnail: "./public/whiskas-desktop-thumb.png",
+      video: getAsset("whiskas-desktop.mp4"),
+      thumbnail: getAsset("whiskas-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/whiskas-mobile.mp4",
-      thumbnail: "./public/whiskas-mobile-thumb.png",
+      video: getAsset("whiskas-mobile.mp4"),
+      thumbnail: getAsset("whiskas-mobile-thumb.png"),
     },
-    thumbnail: "./public/whiskas-homepage.jpg",
+    thumbnail: getAsset("whiskas-homepage.jpg"),
   },
   cocacola: {
     desktop: {
-      video: "./public/cocacola-desktop.mp4",
-      thumbnail: "./public/cocacola-desktop-thumb.png",
+      video: getAsset("cocacola-desktop.mp4"),
+      thumbnail: getAsset("cocacola-desktop-thumb.png"),
     },
     mobile: {
-      video: "./public/cocacola-mobile.mp4",
-      thumbnail: "./public/cocacola-mobile-thumb.png",
+      video: getAsset("cocacola-mobile.mp4"),
+      thumbnail: getAsset("cocacola-mobile-thumb.png"),
     },
-    thumbnail: "./public/cocacola-homepage.jpg",
+    thumbnail: getAsset("cocacola-homepage.jpg"),
   },
 };
 
