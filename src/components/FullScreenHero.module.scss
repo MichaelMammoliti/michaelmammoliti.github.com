@@ -26,81 +26,144 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 
-  > img,
-  > video {
+  .PortfolioItemBackground {
+    z-index: 0;
+  }
+  .PortfolioItemDevice {
     z-index: 1;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: right top;
+  }
+  .PortfolioItemOverlay {
+    z-index: 2;
+  }
+
+  .PortfolioItemStats,
+  .PortfolioItemThumbnails,
+  .PortfolioItemDetails {
+    z-index: 3;
   }
 
   .PortfolioItemOverlay {
-    display: none;
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 2;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8) 10%,
+      rgba(0, 0, 0, 0) 50%
+    );
   }
 
-  .PortfolioItemContent {
+  .PortfolioItemBackground {
     position: absolute;
-    height: 100%;
-    width: 100%;
     top: 0;
     left: 0;
-    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    filter: blur(8px);
+    transform: scale(1.4);
+  }
 
-    > div {
-      padding-left: 80px;
-      padding-bottom: 80px;
-      height: 100%;
-      left: 0;
-      bottom: 0;
-      display: flex;
-      height: 100%;
-      flex-direction: column;
-      z-index: 3;
-      justify-content: center;
+  .PortfolioItemDevice[data-type="desktop"] {
+    max-width: 60vw;
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 15px solid #000;
+    box-shadow: 0 0px 300px rgba(255, 255, 255, 0.4);
+
+    > img,
+    > video {
       position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
 
-      z-index: 1;
+  .PortfolioItemDetails {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    padding-left: 64px;
+    padding-bottom: 64px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-      > h2 {
-        font-size: 4rem;
-        // one word per line
-        display: table-caption;
-        word-spacing: 9999rem;
-        margin-bottom: 32px;
+    > h2 {
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 1);
+      margin-bottom: 16px;
+    }
+
+    > span {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+    }
+
+    > button {
+      width: fit-content;
+      padding: 0 24px;
+      height: 48px;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 1);
+      color: rgba(0, 0, 0, 1);
+      cursor: pointer;
+      border: 0;
+      transition-property: background-color, color;
+      transition-duration: 0.3s;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+        background: rgba(0, 0, 0, 1);
       }
     }
 
-    &::before {
-      content: "";
-      background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 20%,
-        rgba(0, 0, 0, 0) 50%
-      );
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 0;
+    .PortfolioItemThumbnails {
+      margin-bottom: 48px;
     }
+
+    .PortfolioItemStats {
+      margin-bottom: 48px;
+      display: none;
+    }
+  }
+
+  .PortfolioItemOverlay {
+    content: "";
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -178,29 +241,31 @@
 /* Statistics Grid */
 .Stats {
   width: fit-content;
-  display: none;
-  margin-bottom: 48px;
+  position: relative;
 
   > ul {
     display: flex;
     gap: 24px;
+    z-index: 1;
 
     > li {
       display: flex;
       flex: 0 0 auto;
+      min-width: 150px;
     }
   }
 
   .StatsItem {
     p {
       margin-bottom: 8px;
-      font-size: 18px;
+      font-size: 16px;
       color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
     }
 
     span {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 48px;
+      font-weight: 300;
     }
   }
 }
@@ -212,16 +277,14 @@
     gap: 16px;
 
     li {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      aspect-ratio: 2.5/4;
       position: relative;
     }
 
     button {
       border: 0;
-      border-radius: 4px;
       overflow: hidden;
-      opacity: 0.8;
       transition-property: opacity;
       transition-duration: 0.3s;
       position: absolute;
@@ -230,9 +293,35 @@
       width: 100%;
       height: 100%;
       cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition-property: box-shadow;
+      transition-duration: 1s;
+      transition-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 1s;
+        transition-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+        z-index: 1;
+      }
 
       &:hover {
-        opacity: 1;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        &::before {
+          opacity: 1;
+        }
+
+        img {
+          transform: scale(1.05);
+        }
       }
 
       img {
@@ -247,6 +336,9 @@
         top: 0;
         left: 0;
         display: block;
+        transition-property: transform;
+        transition-duration: 1s;
+        transition-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
       }
     }
   }

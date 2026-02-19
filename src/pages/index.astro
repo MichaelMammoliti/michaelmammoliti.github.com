@@ -1,4 +1,5 @@
 ---
+import { FirstSlide } from "../components/FirstSlide";
 import { FullScreenHero } from "../components/FullScreenHero";
 
 import "../styles/reset.scss";
@@ -38,6 +39,8 @@ import "../styles/reset.scss";
       </a>
     </header>
 
+    <FirstSlide client:load />
+
     <FullScreenHero client:load />
   </body>
 </html>
@@ -48,7 +51,7 @@ import "../styles/reset.scss";
     top: 0;
     left: 0;
     width: 100%;
-    padding: 40px 80px;
+    padding: 40px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +73,7 @@ import "../styles/reset.scss";
 
   .logo {
     svg {
-      height: 80;
+      height: 48px;
       fill: #fff;
     }
   }

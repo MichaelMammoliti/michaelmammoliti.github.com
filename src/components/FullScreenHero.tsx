@@ -42,8 +42,8 @@ const Stats = ({ items }: StatsProps) => {
         {items.map((stat, index) => (
           <li key={index}>
             <div className={styles.StatsItem}>
-              <p>{stat.label}</p>
               <span>{stat.value}</span>
+              <p>{stat.label}</p>
             </div>
           </li>
         ))}
@@ -85,6 +85,7 @@ const PortfolioItem = ({
   assets,
   stats,
   title,
+  brand,
   onThumbnailClick,
 }: PortfolioItemProps) => {
   const elRef = useRef<HTMLDivElement>(null);
@@ -126,24 +127,44 @@ const PortfolioItem = ({
 
   const newAssets = assets.slice(1);
 
+  const handleDiscoverMoreClick = () => {
+    // Implement your logic for "Discover More" button click
+  };
+
   return (
     <div className={styles.PortfolioItem} ref={elRef}>
-      {asset.type === "video" ? (
-        <video muted loop>
-          <source src={asset.src} type="video/mp4" />
-        </video>
-      ) : (
-        <img src={asset.src} alt={asset.alt} />
-      )}
+      <div
+        className={styles.PortfolioItemBackground}
+        style={{ backgroundImage: `url(${asset.src})` }}
+      />
+
       <div className={styles.PortfolioItemOverlay} />
-      <div className={styles.PortfolioItemContent}>
-        <div>
-          <h2>{title}</h2>
-          <Stats items={stats} />
-          {!!newAssets.length && (
-            <Thumbnails items={newAssets} onClick={onThumbnailClick} />
-          )}
+
+      <div className={styles.PortfolioItemDevice} data-type="desktop">
+        {asset.type === "video" ? (
+          <video muted loop>
+            <source src={asset.src} type="video/mp4" />
+          </video>
+        ) : (
+          <img src={asset.src} alt={asset.alt} />
+        )}
+      </div>
+
+      <div className={styles.PortfolioItemOverlay} />
+
+      <div className={styles.PortfolioItemDetails}>
+        <h2>{title}</h2>
+        <span>{brand}</span>
+
+        <div className={styles.PortfolioItemThumbnails}>
+          <Thumbnails items={newAssets} onClick={onThumbnailClick} />
         </div>
+
+        <div className={styles.PortfolioItemStats}>
+          <Stats items={stats} />
+        </div>
+
+        <button onClick={handleDiscoverMoreClick}>Discover More</button>
       </div>
     </div>
   );
@@ -183,7 +204,11 @@ export const FullScreenHero = () => {
         <div className={styles.Portfolio}>
           <ul>
             {portfolioItems.map((item, index) => (
-              <li key={item.id} id={`portfolio-item-${index}`}>
+              <li
+                key={item.id}
+                id={`portfolio-item-${index}`}
+                style={{ zIndex: portfolioItems.length - index }}
+              >
                 <PortfolioItem
                   {...item}
                   onThumbnailClick={(thumbnailIndex) => {

@@ -117,7 +117,8 @@ const assets = {
 
 const gillette: PortfolioItem = {
   id: "gillette",
-  title: "Gillette",
+  title: "Exfoliating Bar Razor",
+  brand: "Gillette Labs",
   assets: [
     {
       type: "image",
@@ -126,29 +127,29 @@ const gillette: PortfolioItem = {
         src: assets.gillette.thumbnail,
         alt: "Gillette Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "Exfoliating Bar Razor Homepage",
+      title: "Exfoliating Bar Razor Homepage",
     },
     {
       type: "video",
       platform: "desktop",
       src: assets.gillette.desktop.video,
-      alt: "Gillette Desktop Video",
-      title: "Gillette Desktop Video",
+      alt: "Exfoliating Bar Razor Desktop Video",
+      title: "Exfoliating Bar Razor Desktop Video",
       thumbnail: {
         src: assets.gillette.desktop.thumbnail,
-        alt: "Gillette Desktop Video Thumbnail",
+        alt: "Exfoliating Bar Razor Desktop Video Thumbnail",
       },
     },
     {
       type: "video",
       platform: "mobile",
       src: assets.gillette.mobile.video,
-      alt: "Gillette Mobile Video",
-      title: "Gillette Mobile Video",
+      alt: "Exfoliating Bar Razor Mobile Video",
+      title: "Exfoliating Bar Razor Mobile Video",
       thumbnail: {
         src: assets.gillette.mobile.thumbnail,
-        alt: "Gillette Mobile Video Thumbnail",
+        alt: "Exfoliating Bar Razor Mobile Video Thumbnail",
       },
     },
   ],
@@ -160,7 +161,8 @@ const gillette: PortfolioItem = {
 };
 const enterogermina: PortfolioItem = {
   id: "enterogermina",
-  title: "Enterogermina",
+  title: "Enterogermina Benessere Intestinale",
+  brand: "Sanofi",
   assets: [
     {
       type: "image",
@@ -181,7 +183,8 @@ const enterogermina: PortfolioItem = {
 };
 const appleswitcher: PortfolioItem = {
   id: "appleswitcher",
-  title: "Apple Switcher",
+  title: "Switch to iPhone",
+  brand: "Apple",
   assets: [
     {
       type: "image",
@@ -190,8 +193,8 @@ const appleswitcher: PortfolioItem = {
         src: assets.appleswitcher.thumbnail,
         alt: "Apple Switcher Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "Switch to iPhone Homepage",
+      title: "Switch to iPhone Homepage",
     },
   ],
   stats: [
@@ -202,7 +205,8 @@ const appleswitcher: PortfolioItem = {
 };
 const loreal: PortfolioItem = {
   id: "loreal",
-  title: "L'Oreal",
+  title: "Le Défilé - Walk Your Worth",
+  brand: "L'Oreal",
   assets: [
     {
       type: "image",
@@ -211,8 +215,8 @@ const loreal: PortfolioItem = {
         src: assets.loreal.thumbnail,
         alt: "L'Oreal Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "L'Oreal Homepage",
+      title: "L'Oreal Homepage",
     },
   ],
   stats: [
@@ -223,7 +227,8 @@ const loreal: PortfolioItem = {
 };
 const braunipl: PortfolioItem = {
   id: "braunipl",
-  title: "Braun IPL",
+  title: "Skin i·expert Smart IPL",
+  brand: "Braun",
   assets: [
     {
       type: "image",
@@ -232,8 +237,8 @@ const braunipl: PortfolioItem = {
         src: assets.braunipl.thumbnail,
         alt: "Braun IPL Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "Braun Skin i·expert Smart IPL Homepage",
+      title: "Braun Skin i·expert Smart IPL Homepage",
     },
   ],
   stats: [
@@ -244,7 +249,8 @@ const braunipl: PortfolioItem = {
 };
 const braunrazor: PortfolioItem = {
   id: "braunrazor",
-  title: "Braun Razor",
+  title: "Series 9 Pro+ Shaver",
+  brand: "Braun",
   assets: [
     {
       type: "image",
@@ -275,7 +281,8 @@ const braunrazor: PortfolioItem = {
 };
 const sheebahope: PortfolioItem = {
   id: "sheebahope",
-  title: "Sheeba Hope",
+  title: "Restore Reef: Hope Grows",
+  brand: "Sheeba",
   assets: [
     {
       type: "image",
@@ -284,8 +291,18 @@ const sheebahope: PortfolioItem = {
         src: assets.sheebahope.thumbnail,
         alt: "Sheeba Hope Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "Restore Reef: Hope Grows Homepage",
+      title: "Restore Reef: Hope Grows Homepage",
+    },
+    {
+      type: "video",
+      src: getAsset("sheebahope-desktop.mp4"),
+      thumbnail: {
+        src: assets.sheebahope.thumbnail,
+        alt: "Restore Reef: Hope Grows Homepage Thumbnail",
+      },
+      alt: "Restore Reef: Hope Grows Desktop",
+      title: "Restore Reef: Hope Grows Desktop",
     },
   ],
   stats: [
@@ -296,7 +313,8 @@ const sheebahope: PortfolioItem = {
 };
 const whiskas: PortfolioItem = {
   id: "whiskas",
-  title: "Whiskas",
+  title: "Purrsonality",
+  brand: "Whiskas",
   assets: [
     {
       type: "image",
@@ -305,8 +323,8 @@ const whiskas: PortfolioItem = {
         src: assets.whiskas.thumbnail,
         alt: "Whiskas Homepage Thumbnail",
       },
-      alt: "Placeholder Image",
-      title: "Placeholder Image",
+      alt: "Purrsonality Homepage",
+      title: "Purrsonality Homepage",
     },
     {
       type: "video",
@@ -327,7 +345,8 @@ const whiskas: PortfolioItem = {
 };
 const cocacola: PortfolioItem = {
   id: "cocacola",
-  title: "Coca-Cola",
+  title: "Secret Santa: Gift Cards",
+  brand: "Coca-Cola",
   assets: [
     {
       type: "image",
@@ -336,18 +355,18 @@ const cocacola: PortfolioItem = {
         src: assets.cocacola.thumbnail,
         alt: "Coca-Cola Homepage Thumbnail",
       },
-      alt: "Coca-Cola Homepage",
-      title: "Coca-Cola Homepage",
+      alt: "Secret Santa: Gift Cards Homepage",
+      title: "Secret Santa: Gift Cards Homepage",
     },
     {
       type: "image",
       src: getAsset("cocacola-2.jpg"),
       thumbnail: {
         src: getAsset("cocacola-2.jpg"),
-        alt: "Coca-Cola Second Image Thumbnail",
+        alt: "Secret Santa: Gift Cards Second Image Thumbnail",
       },
-      alt: "Coca-Cola Second Image",
-      title: "Coca-Cola Second Image",
+      alt: "Secret Santa: Gift Cards Second Image",
+      title: "Secret Santa: Gift Cards Second Image",
     },
   ],
   stats: [

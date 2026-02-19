@@ -13,6 +13,7 @@ export type GalleryAsset = {
 export type PortfolioItem = {
   id: string;
   title: string;
+  brand: string;
   assets: GalleryAsset[];
   stats: { label: string; value: string }[];
 };
