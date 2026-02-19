@@ -1,4 +1,4 @@
-.visually-hidden {
+@mixin visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -8,4 +8,51 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+$MOBILE_MAX: 575px;
+$TABLET_MIN: 576px;
+$TABLET_MAX: 767px;
+$DESKTOP_MIN: 768px;
+
+@mixin tablet {
+  @media (min-width: $TABLET_MIN) and (max-width: $TABLET_MAX) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $TABLET_MIN) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @media (max-width: $TABLET_MAX) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $MOBILE_MAX) {
+    @content;
+  }
+}
+
+@mixin mobile-up {
+  @media (min-width: 0px) and (max-width: $TABLET_MAX) {
+    @content;
+  }
+}
+
+@mixin mobile-down {
+  @media (max-width: $MOBILE_MAX) {
+    @content;
+  }
 }

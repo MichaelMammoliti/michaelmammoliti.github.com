@@ -12,26 +12,24 @@
 
   .GalleryWrapper {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100vw - 80px);
+    top: 0;
+    right: 0;
+    width: clamp(400px, 50vw, 800px);
     background: #fff;
     overflow: hidden;
-    border-radius: 24px;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 24px;
-    height: calc(100vh - 80px);
+    height: 100%;
   }
 
   .GalleryContent {
-    flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #000;
+    max-height: 400px;
 
     video,
     img {

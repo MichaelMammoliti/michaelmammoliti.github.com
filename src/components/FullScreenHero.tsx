@@ -128,7 +128,7 @@ const PortfolioItem = ({
   const newAssets = assets.slice(1);
 
   const handleDiscoverMoreClick = () => {
-    // Implement your logic for "Discover More" button click
+    onThumbnailClick(0);
   };
 
   return (
@@ -191,7 +191,7 @@ export const FullScreenHero = () => {
   }, [activeItemIndex]);
 
   return (
-    <div>
+    <div id="portfolio">
       <section className={styles.Hero}>
         <VerticalNavigation
           items={portfolioItems.map((item) => item.title)}
