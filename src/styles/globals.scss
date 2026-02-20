@@ -56,3 +56,13 @@ $DESKTOP_MIN: 768px;
     @content;
   }
 }
+
+@mixin transition(
+  $properties,
+  $duration: 1.2s,
+  $timing: cubic-bezier(0.2, 0.5, 0, 1)
+) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: cubic-bezier(0.2, 0.5, 0, 1);
+}

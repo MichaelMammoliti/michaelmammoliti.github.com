@@ -1,18 +1,22 @@
 .FirstSlideWrapper {
-  position: relative;
-  height: 400px;
+  position: fixed;
+  height: 100%;
+  width: 500px;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .FirstSlide {
-  position: fixed;
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 50vh;
-  overflow: hidden;
 }
 
 .Background {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -33,107 +37,152 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(255, 255, 255);
   z-index: -1;
 }
+
 .Content {
-  position: relative;
+  position: absolute;
   width: 100%;
-  padding: 64px;
+  padding: 80px 40px;
   display: flex;
-  height: 400px;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: #111;
 }
 
 .ProfileImage {
-  width: 128px;
-  aspect-ratio: 1;
   display: block;
+  width: 80px;
+  aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
   object-position: top center;
-  margin: auto;
-}
-
-.Center {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 50vw;
-  margin: 0 auto;
+  margin-bottom: 12px;
 }
 
 .Title {
-  color: #fff;
-  font-size: 2rem;
-  text-align: center;
+  font-size: 20px;
 }
+
 .Subtitle {
-  color: #fff;
-  font-size: 1.2rem;
-  text-align: center;
-}
-.Description {
-  color: #fff;
   font-size: 1rem;
-  text-align: center;
-  display: none;
+  text-align: left;
+  margin-bottom: 12px;
 }
-.Actions {
+
+.Headline {
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: block;
+
+  span,
+  strong {
+    display: block;
+  }
+}
+
+.Logo {
+  fill: #111;
+  height: 48px;
+  display: block;
+}
+
+.Nav {
   display: flex;
-  gap: 24px;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 
-  button {
-    padding: 12px 24px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition:
-      background-color 0.3s,
-      color 0.3s;
+  ul {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
 
-    &:hover {
-      background-color: #fff;
-      color: #000;
+    li {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+
+      a {
+        font-size: 32px;
+        text-decoration: none;
+        color: #111;
+        display: block;
+      }
     }
   }
 }
 
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
+.Button {
+  color: #111;
+  min-height: 40px;
+  width: fit-content;
+  min-width: 40px;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  $properties: background-color, color, opacity;
+  @include transition($properties);
+  font-weight: 600;
+
+  svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    @include transition(fill);
   }
-  40% {
-    transform: translateY(-10px);
+
+  span {
+    padding: 0 16px;
   }
-  60% {
-    transform: translateY(-5px);
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &[data-variant="black"] {
+    background-color: #000;
+    color: #fff;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
-.ScrollIndicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+.Contacts {
   display: flex;
-  flex-direction: column;
+  gap: 16px;
   align-items: center;
-  gap: 8px;
-  display: none;
+}
 
-  .Arrow {
-    font-size: 2rem;
-    color: #fff;
-    animation: bounce 2s infinite;
+.Flag {
+  font-size: 14px;
+  border-radius: 40px;
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-bottom: 24px;
+  background: transparent;
+  color: #111;
+  border: 2px solid #111;
+  font-weight: 600;
+}
+
+.Socials {
+  margin-top: 12px;
+
+  ul {
+    display: flex;
   }
 }

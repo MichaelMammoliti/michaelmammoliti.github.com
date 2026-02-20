@@ -13,6 +13,7 @@
   transition-property: box-shadow, background;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
+  display: none;
 
   &[data-theme="light"] {
     .Logo {

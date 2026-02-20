@@ -3,6 +3,7 @@ import { portfolioItems } from "../data";
 import type { GalleryAsset, PortfolioItem } from "../types";
 import styles from "./FullScreenHero.module.scss";
 import { Gallery } from "./Gallery";
+import { Icon } from "./Icon";
 
 type VerticalNavigationProps = {
   items: string[];
@@ -79,6 +80,7 @@ const Thumbnails = ({ items, onClick }: ThumbnailsProps) => {
 
 type PortfolioItemProps = PortfolioItem & {
   onThumbnailClick: (index: number) => void;
+  index: number;
 };
 
 const PortfolioItem = ({
@@ -86,6 +88,7 @@ const PortfolioItem = ({
   stats,
   title,
   brand,
+  index,
   onThumbnailClick,
 }: PortfolioItemProps) => {
   const elRef = useRef<HTMLDivElement>(null);
@@ -153,18 +156,25 @@ const PortfolioItem = ({
       <div className={styles.PortfolioItemOverlay} />
 
       <div className={styles.PortfolioItemDetails}>
-        <h2>{title}</h2>
-        <span>{brand}</span>
+        <div className={styles.PortfolioItemTexts}>
+          <span className={styles.PortfolioItemNumber}>
+            {`${index + 1}`.padStart(2, "0")}
+          </span>
+          <span className={styles.PortfolioItemBrand}>{brand}</span>
+          <h2 className={styles.PortfolioItemTitle}>{title}</h2>
+        </div>
 
-        <div className={styles.PortfolioItemThumbnails}>
+        {/* <div className={styles.PortfolioItemThumbnails}>
           <Thumbnails items={newAssets} onClick={onThumbnailClick} />
         </div>
 
         <div className={styles.PortfolioItemStats}>
           <Stats items={stats} />
-        </div>
+        </div> */}
 
-        <button onClick={handleDiscoverMoreClick}>Discover More</button>
+        <div className={styles.PortfolioItemDiscoverMore}>
+          <button onClick={handleDiscoverMoreClick}>Discover More</button>
+        </div>
       </div>
     </div>
   );
@@ -186,9 +196,52 @@ export const FullScreenHero = () => {
     undefined,
   );
 
-  useEffect(() => {
-    scrollToElement(`#portfolio-item-${activeItemIndex}`);
-  }, [activeItemIndex]);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  // delta = 1 === scrolling to the right, we want to scroll to the next item
+  // delta = -1 === scrolling to the left, we want to scroll to the previous item
+  const scrollList = (delta: number) => {
+    const list = listRef.current;
+    const listItem = list?.querySelector("li");
+
+    if (!list || !listItem) {
+      return;
+    }
+
+    const scrolledListItemPercentage =
+      (list.scrollLeft % listItem.clientWidth) / listItem.clientWidth;
+
+    let left = 0;
+
+    const w = listItem.clientWidth;
+
+    if (delta === 1) {
+      if (scrolledListItemPercentage <= 0.7) {
+        left = w * (1 - scrolledListItemPercentage);
+      } else {
+        left = w * (1 - scrolledListItemPercentage) + w;
+      }
+    } else {
+      if (scrolledListItemPercentage >= 0.3) {
+        left = -w * scrolledListItemPercentage;
+      } else {
+        left = -w * scrolledListItemPercentage - w;
+      }
+    }
+
+    list.scrollBy({
+      left,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLeftClick = () => {
+    scrollList(-1);
+  };
+
+  const handleRightClick = () => {
+    scrollList(1);
+  };
 
   return (
     <div id="portfolio">
@@ -201,8 +254,19 @@ export const FullScreenHero = () => {
           }}
         />
 
+        <div className={styles.PortfolioControls}>
+          <button onClick={handleLeftClick}>
+            <Icon name="ArrowLeft" />
+            <span className="visually-hidden">PREVIOUS</span>
+          </button>
+          <button onClick={handleRightClick}>
+            <Icon name="ArrowRight" />
+            <span className="visually-hidden">NEXT</span>
+          </button>
+        </div>
+
         <div className={styles.Portfolio}>
-          <ul>
+          <ul ref={listRef}>
             {portfolioItems.map((item, index) => (
               <li
                 key={item.id}
@@ -211,6 +275,7 @@ export const FullScreenHero = () => {
               >
                 <PortfolioItem
                   {...item}
+                  index={index}
                   onThumbnailClick={(thumbnailIndex) => {
                     setActiveItemIndex(index);
                     setActiveAssetIndex(thumbnailIndex);
