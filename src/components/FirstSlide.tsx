@@ -1,7 +1,6 @@
 import { useEffect } from "react";
+import { Anchor } from "./Button";
 import styles from "./FirstSlide.module.scss";
-
-import { Icon } from "./Icon";
 
 const assets = {
   profileImage: "/public/profile-image.jpg",
@@ -22,39 +21,26 @@ const Socials = () => (
   <div className={styles.Socials}>
     <ul>
       <li>
-        <a
-          className={styles.Button}
+        <Anchor
+          icon="Curriculum"
+          label="Curriculum"
           href={assets.curriculum}
           download
-          data-type="icon"
-        >
-          <Icon name="Curriculum" />
-          <span className="visually-hidden">Curriculum</span>
-        </a>
+        />
       </li>
       <li>
-        <a
-          className={styles.Button}
-          href="https://github.com/MichaelMammoliti"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-type="icon"
-        >
-          <Icon name="Github" />
-          <span className="visually-hidden">Github</span>
-        </a>
+        <Anchor
+          icon="Github"
+          href="https://www.github.com/michaelmammoliti"
+          label="GitHub"
+        />
       </li>
       <li>
-        <a
-          className={styles.Button}
+        <Anchor
+          icon="LinkedIn"
           href="https://www.linkedin.com/in/michaelmammoliti/"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-type="icon"
-        >
-          <Icon name="LinkedIn" />
-          <span className="visually-hidden">LinkedIn</span>
-        </a>
+          label="LinkedIn"
+        />
       </li>
     </ul>
   </div>
@@ -126,28 +112,33 @@ export const FirstSlide = () => {
           </div> */}
 
           <div>
-            <div>
-              <img
-                className={styles.ProfileImage}
-                src={assets.profileImage}
-                alt="A profile image of Michael Mammoliti"
-              />
+            <img
+              className={styles.ProfileImage}
+              src={assets.profileImage}
+              alt="A profile image of Michael Mammoliti"
+            />
 
-              <h2 className={styles.Title}>Michael Mammoliti</h2>
-              <p className={styles.Subtitle}>Senior Full Stack Engineer</p>
+            <h2 className={styles.Title}>Michael Mammoliti</h2>
+            <p className={styles.Subtitle}>Senior Full Stack Engineer</p>
 
-              <i className={styles.Headline}>
-                <span>15+ years, trusted by Tech Giants & Startups.</span>
-                <strong>Let's shape the future, together.</strong>
-              </i>
+            <i className={styles.Headline}>
+              <span>15+ years, trusted by Tech Giants & Startups.</span>
+              <strong>Let's shape the future, together.</strong>
+            </i>
 
-              <a
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 24,
+                justifyContent: "space-between",
+              }}
+            >
+              <Anchor
                 href="mailto:mammoliti.michael@gmail.com"
-                className={styles.Button}
+                text="GET IN TOUCH"
                 data-variant="black"
-              >
-                <span>GET IN TOUCH</span>
-              </a>
+              />
 
               <Socials />
             </div>

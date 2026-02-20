@@ -69,12 +69,12 @@
 .Subtitle {
   font-size: 1rem;
   text-align: left;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .Headline {
   font-size: 14px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   display: block;
 
   span,
@@ -114,49 +114,6 @@
   }
 }
 
-.Button {
-  color: #111;
-  min-height: 40px;
-  width: fit-content;
-  min-width: 40px;
-  text-decoration: none;
-  background-color: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  $properties: background-color, color, opacity;
-  @include transition($properties);
-  font-weight: 600;
-
-  svg {
-    display: block;
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-    @include transition(fill);
-  }
-
-  span {
-    padding: 0 16px;
-  }
-
-  &:hover {
-    background-color: #000;
-    color: #fff;
-  }
-
-  &[data-variant="black"] {
-    background-color: #000;
-    color: #fff;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-}
-
 .Contacts {
   display: flex;
   gap: 16px;
@@ -180,8 +137,6 @@
 }
 
 .Socials {
-  margin-top: 12px;
-
   ul {
     display: flex;
   }

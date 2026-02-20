@@ -18,7 +18,7 @@
 
     > li {
       position: relative;
-      width: clamp(300px, 25vw, 600px);
+      width: clamp(300px, 23vw, 500px);
       overflow: hidden;
       min-height: 100vh;
       flex: 0 0 auto;
@@ -93,9 +93,21 @@
     z-index: 3;
   }
 
+  button {
+    background: #000 !important;
+    color: #fff !important;
+
+    $properties: background, color, opacity;
+    @include transition($properties);
+
+    &:hover {
+      opacity: 0.8 !important;
+    }
+  }
+
   &:hover {
     .PortfolioItemOverlay {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .PortfolioItemDetails {
@@ -105,6 +117,11 @@
     .PortfolioItemBackground {
       filter: grayscale(0%) brightness(100%);
       transform: scale(1.05);
+    }
+
+    button {
+      background: #fff !important;
+      color: #000 !important;
     }
   }
 
@@ -144,25 +161,6 @@
   }
 
   .PortfolioItemDiscoverMore {
-    > button {
-      width: fit-content;
-      padding: 0 24px;
-      height: 48px;
-      font-size: 1rem;
-      background: #000;
-      color: #fff;
-      cursor: pointer;
-      font-weight: 600;
-      text-transform: uppercase;
-      border: 0;
-      $properties: background, color;
-      @include transition($properties);
-
-      &:hover {
-        background: #eee;
-        color: #000;
-      }
-    }
   }
 
   .PortfolioItemThumbnails {

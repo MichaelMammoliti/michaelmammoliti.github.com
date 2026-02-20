@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { portfolioItems } from "../data";
 import type { GalleryAsset, PortfolioItem } from "../types";
+import { Button } from "./Button";
 import styles from "./FullScreenHero.module.scss";
 import { Gallery } from "./Gallery";
 import { Icon } from "./Icon";
@@ -173,7 +174,7 @@ const PortfolioItem = ({
         </div> */}
 
         <div className={styles.PortfolioItemDiscoverMore}>
-          <button onClick={handleDiscoverMoreClick}>Discover More</button>
+          <Button onClick={handleDiscoverMoreClick} text="Discover More" />
         </div>
       </div>
     </div>

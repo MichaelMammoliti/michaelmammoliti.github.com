@@ -117,7 +117,7 @@ const assets = {
 
 const gillette: PortfolioItem = {
   id: "gillette",
-  title: "Exfoliating Bar Razor",
+  title: "Exfoliating Bar",
   brand: "Gillette Labs",
   assets: [
     {
@@ -249,7 +249,7 @@ const braunipl: PortfolioItem = {
 };
 const braunrazor: PortfolioItem = {
   id: "braunrazor",
-  title: "Series 9 Pro+ Shaver",
+  title: "Series 9 Pro+",
   brand: "Braun",
   assets: [
     {
@@ -313,7 +313,7 @@ const sheebahope: PortfolioItem = {
 };
 const whiskas: PortfolioItem = {
   id: "whiskas",
-  title: "Purrsonality",
+  title: "Purr'O'Clock",
   brand: "Whiskas",
   assets: [
     {
@@ -323,8 +323,8 @@ const whiskas: PortfolioItem = {
         src: assets.whiskas.thumbnail,
         alt: "Whiskas Homepage Thumbnail",
       },
-      alt: "Purrsonality Homepage",
-      title: "Purrsonality Homepage",
+      alt: "Purr'O'Clock Homepage",
+      title: "Purr'O'Clock Homepage",
     },
     {
       type: "video",
@@ -333,8 +333,8 @@ const whiskas: PortfolioItem = {
         src: assets.whiskas.thumbnail,
         alt: "Whiskas Desktop Thumbnail",
       },
-      alt: "Whiskas Desktop",
-      title: "Whiskas Desktop",
+      alt: "Purr'O'Clock Desktop",
+      title: "Purr'O'Clock Desktop",
     },
   ],
   stats: [
@@ -345,7 +345,7 @@ const whiskas: PortfolioItem = {
 };
 const cocacola: PortfolioItem = {
   id: "cocacola",
-  title: "Secret Santa: Gift Cards",
+  title: "Secret Santa",
   brand: "Coca-Cola",
   assets: [
     {

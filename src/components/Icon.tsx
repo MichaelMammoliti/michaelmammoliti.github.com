@@ -71,7 +71,7 @@ const ArrowRight = () => (
   </svg>
 );
 
-type IconName =
+export type IconName =
   | "Curriculum"
   | "Github"
   | "LinkedIn"
