@@ -120,11 +120,15 @@ export const FirstSlide = () => {
 
             <h2 className={styles.Title}>Michael Mammoliti</h2>
             <p className={styles.Subtitle}>Senior Full Stack Engineer</p>
+            <span className={styles.Headline}>
+              15+ years, trusted by Tech Giants & Startups.
+            </span>
 
-            <i className={styles.Headline}>
-              <span>15+ years, trusted by Tech Giants & Startups.</span>
-              <strong>Let's shape the future, together.</strong>
-            </i>
+            <blockquote className={styles.Quote}>
+              <em>
+                <strong>Let's shape the future, together.</strong>
+              </em>
+            </blockquote>
 
             <div
               style={{
