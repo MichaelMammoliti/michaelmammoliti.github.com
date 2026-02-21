@@ -9,7 +9,7 @@
   align-items: center;
   z-index: 10;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 4px rgba(#444, 0);
   transition-property: box-shadow, background;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
@@ -24,21 +24,21 @@
 
     .ChatButton {
       background: #fff;
-      color: #000;
+      color: #444;
     }
   }
 
   &[data-theme="dark"] {
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(#444, 0.1);
     .Logo {
       svg {
-        fill: #000;
+        fill: #444;
       }
     }
 
     .ChatButton {
-      background: #000;
+      background: #444;
       color: #fff;
     }
   }
@@ -66,7 +66,7 @@
 }
 
 .ChatButton {
-  color: #000;
+  color: #444;
   padding: 0 24px;
   height: 48px;
   display: flex;

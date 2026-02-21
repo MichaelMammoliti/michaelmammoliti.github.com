@@ -4,13 +4,13 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
+  background: rgba(#444, 0.9);
+  z-index: 1333;
 
   .GalleryClose {
     cursor: pointer;
     background: #fff;
-    color: #000;
+    color: #444;
     border: 0;
     height: 48px;
     width: 48px;
@@ -24,7 +24,7 @@
     position: fixed;
 
     &:hover {
-      background: #000;
+      background: #444;
       color: #fff;
     }
   }
@@ -70,7 +70,7 @@
 
     h2 {
       font-size: 1.5rem;
-      color: #000;
+      color: #444;
     }
   }
 
@@ -97,7 +97,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(#444, 0.4);
       transition-property: background;
       transition-duration: 0.3s;
       z-index: 1;
@@ -105,7 +105,7 @@
 
     &:hover:not([data-current="true"]) {
       &:before {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(#444, 0.5);
       }
     }
 

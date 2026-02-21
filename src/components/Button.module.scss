@@ -1,6 +1,6 @@
 .Anchor,
 .Button {
-  color: #111;
+  color: #444;
   min-height: 56px;
   min-width: 56px;
   width: fit-content;
@@ -32,12 +32,12 @@
   }
 
   &:hover {
-    background: #000;
+    background: #444;
     color: #fff;
   }
 
   &[data-variant="black"] {
-    background: #000;
+    background: #444;
     color: #fff;
 
     &:hover {
@@ -47,7 +47,7 @@
 
   &[data-variant="white"] {
     background: #fff;
-    color: #000;
+    color: #444;
 
     &:hover {
       opacity: 0.8;

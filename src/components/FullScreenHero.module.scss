@@ -43,7 +43,7 @@
     height: 56px;
     width: 56px;
     text-decoration: none;
-    background: #000;
+    background: #444;
     $properties: color, background;
     @include transition($properties);
 
@@ -54,8 +54,8 @@
     }
 
     &:hover {
-      color: #222;
-      background: #fff;
+      color: #fff;
+      background: #666;
     }
   }
 }
@@ -94,7 +94,7 @@
   }
 
   button {
-    background: #000 !important;
+    background: #444 !important;
     color: #fff !important;
 
     $properties: background, color, opacity;
@@ -107,7 +107,7 @@
 
   &:hover {
     .PortfolioItemOverlay {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(#444, 0.6);
     }
 
     .PortfolioItemDetails {
@@ -121,12 +121,12 @@
 
     button {
       background: #fff !important;
-      color: #000 !important;
+      color: #444 !important;
     }
   }
 
   .PortfolioItemOverlay {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(#eee, 0.8);
     @include transition(background);
   }
 
@@ -149,7 +149,7 @@
     transform: translateY(-50%);
     border-radius: 24px;
     overflow: hidden;
-    border: 15px solid #000;
+    border: 15px solid #444;
     box-shadow: 0 0px 300px rgba(255, 255, 255, 0.8);
 
     > img,
@@ -197,7 +197,7 @@
   }
 
   .PortfolioItemDetails {
-    color: #111;
+    color: #444;
     padding: 80px 40px;
     display: flex;
     flex-direction: column;
@@ -328,7 +328,7 @@
       width: 100%;
       height: 100%;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(#444, 0.2);
       @include transition(box-shadow);
 
       &::before {
@@ -345,7 +345,7 @@
       }
 
       &:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 16px rgba(#444, 0.3);
         &::before {
           opacity: 1;
         }
