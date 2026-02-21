@@ -3,8 +3,8 @@ import { Anchor } from "./Button";
 import styles from "./FirstSlide.module.scss";
 
 const assets = {
-  profileImage: "/public/profile-image.jpg",
-  curriculum: "/public/Michael Mammoliti - Senior Full Stack Engineer.pdf",
+  profileImage: "/profile-image.jpg",
+  curriculum: "/Michael Mammoliti - Senior Full Stack Engineer.pdf",
 };
 
 const Logo = () => (
