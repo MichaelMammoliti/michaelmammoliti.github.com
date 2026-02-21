@@ -27,17 +27,15 @@
     display: block;
     width: 16px;
     height: 16px;
-    fill: currentColor;
-    @include transition(fill);
   }
 
   &:hover {
-    background: #444;
+    background: #111;
     color: #fff;
   }
 
   &[data-variant="black"] {
-    background: #444;
+    background: #111;
     color: #fff;
 
     &:hover {
@@ -47,7 +45,7 @@
 
   &[data-variant="white"] {
     background: #fff;
-    color: #444;
+    color: #111;
 
     &:hover {
       opacity: 0.8;

@@ -4,7 +4,7 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: rgba(#444, 0.9);
+  background: rgba(#111, 0.9);
   z-index: 1333;
 
   .GalleryClose {
@@ -22,6 +22,9 @@
     justify-content: center;
     z-index: 1001;
     position: fixed;
+
+    $properties: background;
+    @include transition($properties);
 
     &:hover {
       background: #444;
@@ -111,8 +114,8 @@
 
     &[data-current="true"] {
       &:before {
-        background: rgba(255, 255, 255, 0);
-        border: 2px solid rgba(255, 255, 255, 0.8);
+        background: rgba(#fff, 0);
+        border: 2px solid rgba(#fff, 0.8);
       }
     }
 
@@ -126,7 +129,7 @@
 
     svg {
       position: absolute;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(#fff, 0.8);
       height: 1.5rem;
       width: 1.5rem;
       top: 50%;

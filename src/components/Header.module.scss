@@ -17,9 +17,7 @@
 
   &[data-theme="light"] {
     .Logo {
-      svg {
-        fill: #fff;
-      }
+      color: #fff;
     }
 
     .ChatButton {
@@ -29,12 +27,11 @@
   }
 
   &[data-theme="dark"] {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 4px rgba(#444, 0.1);
+    background: rgba(#fff, 1);
+    box-shadow: 0 2px 4px rgba(#444, 0.2);
+
     .Logo {
-      svg {
-        fill: #444;
-      }
+      color: #444;
     }
 
     .ChatButton {
@@ -47,9 +44,6 @@
 .Logo {
   svg {
     height: 56px;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-    transition-property: fill;
   }
 }
 
@@ -74,7 +68,7 @@
   border-radius: 50px;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
-  transition-property: background-color, color;
+  transition-property: background, color;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.75rem;
