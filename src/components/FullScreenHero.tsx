@@ -194,7 +194,7 @@ const scrollToElement = (selector: string) => {
 export const FullScreenHero = () => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [activeAssetIndex, setActiveAssetIndex] = useState<number | undefined>(
-    undefined,
+    0,
   );
 
   const listRef = useRef<HTMLUListElement>(null);

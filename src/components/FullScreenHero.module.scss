@@ -28,8 +28,9 @@
 
 .PortfolioControls {
   position: fixed;
-  top: 40px;
-  right: 40px;
+  top: 80px;
+  left: 500px;
+  transform: translate(-50%, 0);
   display: flex;
   z-index: 5;
 
@@ -40,16 +41,16 @@
     padding: 0;
     color: #fff;
     font-weight: 600;
-    height: 80px;
-    width: 80px;
+    height: 56px;
+    width: 56px;
     text-decoration: none;
     background: #000;
     $properties: color, background;
     @include transition($properties);
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 12px;
+      height: 12px;
       fill: currentColor;
     }
 
