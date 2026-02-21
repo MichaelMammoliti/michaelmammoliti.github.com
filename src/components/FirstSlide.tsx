@@ -136,9 +136,10 @@ export const FirstSlide = () => {
             >
               <Anchor
                 href="mailto:mammoliti.michael@gmail.com"
-                text="GET IN TOUCH"
                 data-variant="black"
-              />
+              >
+                GET IN TOUCH
+              </Anchor>
 
               <Socials />
             </div>

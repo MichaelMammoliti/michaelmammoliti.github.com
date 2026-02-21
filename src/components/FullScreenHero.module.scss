@@ -36,11 +36,10 @@
 
   button {
     border: 0;
+    padding: 0;
     cursor: pointer;
     width: fit-content;
-    padding: 0;
     color: #fff;
-    font-weight: 600;
     height: 56px;
     width: 56px;
     text-decoration: none;
@@ -180,18 +179,18 @@
 
     .PortfolioItemNumber {
       font-weight: 900;
-      font-size: 96px;
+      font-size: 7rem;
+      margin-bottom: 2rem;
     }
 
     .PortfolioItemTitle {
-      margin-bottom: 48px;
-      font-size: 24px;
-      font-weight: 300;
+      margin-bottom: 3rem;
+      font-size: 1.5rem;
     }
 
     .PortfolioItemBrand {
-      font-size: 48px;
-      font-weight: 900;
+      font-size: 3rem;
+      font-weight: 600;
     }
   }
 
@@ -266,7 +265,7 @@
         z-index: 1;
         color: rgba(255, 255, 255, 1);
         padding-left: 32px;
-        font-size: 16px;
+        font-size: 1rem;
         @include transition(color);
       }
     }
@@ -293,14 +292,13 @@
   .StatsItem {
     p {
       margin-bottom: 8px;
-      font-size: 16px;
+      font-size: 1rem;
       color: rgba(255, 255, 255, 0.7);
       font-weight: 600;
     }
 
     span {
-      font-size: 48px;
-      font-weight: 300;
+      font-size: 3rem;
     }
   }
 }

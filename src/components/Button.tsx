@@ -8,21 +8,20 @@ export const Anchor = (
     href: string;
     label?: string;
     children?: React.ReactNode;
-    text?: string;
   } & React.AnchorHTMLAttributes<HTMLAnchorElement>,
 ) => {
-  const { icon, children, label, text, ...rest } = props;
+  const { icon, children, label, ...rest } = props;
 
   return (
     <a
       className={styles.Anchor}
       target={props.target}
       rel="noopener noreferrer"
+      data-icon={icon ? "true" : undefined}
       {...rest}
     >
       {icon && <Icon name={icon} />}
       {label && <span className="visually-hidden">{label}</span>}
-      {text && <span>{text}</span>}
       {children}
     </a>
   );
@@ -34,16 +33,18 @@ export const Button = (
     label?: string;
     children?: React.ReactNode;
     onClick?: () => void;
-    text?: string;
   } & React.ButtonHTMLAttributes<HTMLButtonElement>,
 ) => {
-  const { icon, children, label, text, ...rest } = props;
+  const { icon, children, label, ...rest } = props;
 
   return (
-    <button className={styles.Button} {...rest}>
+    <button
+      className={styles.Button}
+      data-icon={icon ? "true" : undefined}
+      {...rest}
+    >
       {icon && <Icon name={icon} />}
       {label && <span className="visually-hidden">{label}</span>}
-      {text && <span>{text}</span>}
       {children}
     </button>
   );

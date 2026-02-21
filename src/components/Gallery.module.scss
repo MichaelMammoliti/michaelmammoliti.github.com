@@ -8,7 +8,7 @@
   z-index: 1000;
 
   .GalleryClose {
-    font-size: 24px;
+    font-size: 1.5rem;
     cursor: pointer;
     background: #fff;
     color: #000;
@@ -46,12 +46,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    max-width: calc(100vw - 200px);
+    max-height: calc(90vh - 100px);
 
     video,
     img {
-      max-width: calc(clamp(300px, 100%, 1500px) - 176px);
-      height: calc(100vh - 200px);
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       display: block;
     }
@@ -69,7 +70,7 @@
     display: none;
 
     h2 {
-      font-size: 24px;
+      font-size: 1.5rem;
       color: #000;
     }
   }
@@ -127,7 +128,8 @@
     svg {
       position: absolute;
       color: rgba(255, 255, 255, 0.8);
-      font-size: 24px;
+      height: 1.5rem;
+      width: 1.5rem;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

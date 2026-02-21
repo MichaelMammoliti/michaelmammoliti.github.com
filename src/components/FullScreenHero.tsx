@@ -174,7 +174,7 @@ const PortfolioItem = ({
         </div> */}
 
         <div className={styles.PortfolioItemDiscoverMore}>
-          <Button onClick={handleDiscoverMoreClick} text="Discover More" />
+          <Button onClick={handleDiscoverMoreClick}>Discover More</Button>
         </div>
       </div>
     </div>
