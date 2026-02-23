@@ -1,83 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { portfolioItems } from "../data";
-import type { GalleryAsset, PortfolioItem } from "../types";
+import type { PortfolioItem } from "../types";
 import { Button } from "./Button";
-import styles from "./FullScreenHero.module.scss";
 import { Gallery } from "./Gallery";
 import { Icon } from "./Icon";
 
-type VerticalNavigationProps = {
-  items: string[];
-  onClick: (index: number) => void;
-  activeItemIndex: number;
-};
-
-const VerticalNavigation = ({
-  items,
-  activeItemIndex,
-  onClick,
-}: VerticalNavigationProps) => {
-  return (
-    <div className={styles.VerticalNavigation}>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            <button
-              aria-current={activeItemIndex === index ? "step" : undefined}
-              onClick={() => onClick(index)}
-            >
-              <span>{item}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-type StatsProps = { items: { label: string; value: string }[] };
-
-const Stats = ({ items }: StatsProps) => {
-  return (
-    <div className={styles.Stats}>
-      <ul>
-        {items.map((stat, index) => (
-          <li key={index}>
-            <div className={styles.StatsItem}>
-              <span>{stat.value}</span>
-              <p>{stat.label}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-type ThumbnailsProps = {
-  items: GalleryAsset[];
-  onClick: (index: number) => void;
-};
-
-const Thumbnails = ({ items, onClick }: ThumbnailsProps) => {
-  return (
-    <div className={styles.Thumbnails}>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            <button onClick={() => onClick(index)}>
-              <img
-                src={item.thumbnail.src}
-                alt={item.thumbnail.alt}
-                className={styles.thumb}
-              />
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+import styles from "./FullScreenHero.module.scss";
 
 type PortfolioItemProps = PortfolioItem & {
   onThumbnailClick: (index: number) => void;
@@ -129,8 +57,6 @@ const PortfolioItem = ({
     };
   }, [isVideo]);
 
-  const newAssets = assets.slice(1);
-
   const handleDiscoverMoreClick = () => {
     onThumbnailClick(0);
   };
@@ -165,30 +91,12 @@ const PortfolioItem = ({
           <h2 className={styles.PortfolioItemTitle}>{title}</h2>
         </div>
 
-        {/* <div className={styles.PortfolioItemThumbnails}>
-          <Thumbnails items={newAssets} onClick={onThumbnailClick} />
-        </div>
-
-        <div className={styles.PortfolioItemStats}>
-          <Stats items={stats} />
-        </div> */}
-
         <div className={styles.PortfolioItemDiscoverMore}>
           <Button onClick={handleDiscoverMoreClick}>Discover More</Button>
         </div>
       </div>
     </div>
   );
-};
-
-const scrollToElement = (selector: string) => {
-  const element = document.querySelector(selector);
-
-  if (element) {
-    element.scrollIntoView({
-      behavior: "smooth",
-    });
-  }
 };
 
 export const FullScreenHero = () => {
@@ -199,8 +107,6 @@ export const FullScreenHero = () => {
 
   const listRef = useRef<HTMLUListElement>(null);
 
-  // delta = 1 === scrolling to the right, we want to scroll to the next item
-  // delta = -1 === scrolling to the left, we want to scroll to the previous item
   const scrollList = (delta: number) => {
     const list = listRef.current;
     const listItem = list?.querySelector("li");
@@ -245,57 +151,43 @@ export const FullScreenHero = () => {
   };
 
   return (
-    <div id="portfolio">
-      <section className={styles.Hero}>
-        <VerticalNavigation
-          items={portfolioItems.map((item) => item.title)}
-          activeItemIndex={activeItemIndex}
-          onClick={(index) => {
-            setActiveItemIndex(index);
-          }}
+    <div id="portfolio" className={styles.PortfolioRoot}>
+      <div className={styles.PortfolioControls}>
+        <button onClick={handleLeftClick}>
+          <Icon name="ArrowLeft" />
+          <span className="visually-hidden">PREVIOUS</span>
+        </button>
+        <button onClick={handleRightClick}>
+          <Icon name="ArrowRight" />
+          <span className="visually-hidden">NEXT</span>
+        </button>
+      </div>
+
+      <div className={styles.Portfolio}>
+        <ul ref={listRef}>
+          {portfolioItems.map((item, index) => (
+            <li key={item.id}>
+              <PortfolioItem
+                {...item}
+                index={index}
+                onThumbnailClick={(thumbnailIndex) => {
+                  setActiveItemIndex(index);
+                  setActiveAssetIndex(thumbnailIndex);
+                }}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {typeof activeAssetIndex === "number" && (
+        <Gallery
+          assets={portfolioItems[activeItemIndex].assets.slice(1)}
+          activeAssetIndex={activeAssetIndex}
+          onClose={() => setActiveAssetIndex(undefined)}
+          onChange={(index) => setActiveAssetIndex(index)}
         />
-
-        <div className={styles.PortfolioControls}>
-          <button onClick={handleLeftClick}>
-            <Icon name="ArrowLeft" />
-            <span className="visually-hidden">PREVIOUS</span>
-          </button>
-          <button onClick={handleRightClick}>
-            <Icon name="ArrowRight" />
-            <span className="visually-hidden">NEXT</span>
-          </button>
-        </div>
-
-        <div className={styles.Portfolio}>
-          <ul ref={listRef}>
-            {portfolioItems.map((item, index) => (
-              <li
-                key={item.id}
-                id={`portfolio-item-${index}`}
-                style={{ zIndex: portfolioItems.length - index }}
-              >
-                <PortfolioItem
-                  {...item}
-                  index={index}
-                  onThumbnailClick={(thumbnailIndex) => {
-                    setActiveItemIndex(index);
-                    setActiveAssetIndex(thumbnailIndex);
-                  }}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {typeof activeAssetIndex === "number" && (
-          <Gallery
-            assets={portfolioItems[activeItemIndex].assets.slice(1)}
-            activeAssetIndex={activeAssetIndex}
-            onClose={() => setActiveAssetIndex(undefined)}
-            onChange={(index) => setActiveAssetIndex(index)}
-          />
-        )}
-      </section>
+      )}
     </div>
   );
 };
