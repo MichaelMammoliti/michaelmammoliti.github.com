@@ -80,16 +80,16 @@ const assets = {
     },
     thumbnail: getAsset("braunrazor-homepage.jpg"),
   },
-  sheebahope: {
+  shebahope: {
     desktop: {
-      video: getAsset("sheebahope-desktop.mp4"),
-      thumbnail: getAsset("sheebahope-desktop-thumb.png"),
+      video: getAsset("shebahope-desktop.mp4"),
+      thumbnail: getAsset("shebahope-desktop-thumb.png"),
     },
     mobile: {
-      video: getAsset("sheebahope-mobile.mp4"),
-      thumbnail: getAsset("sheebahope-mobile-thumb.png"),
+      video: getAsset("shebahope-mobile.mp4"),
+      thumbnail: getAsset("shebahope-mobile-thumb.png"),
     },
-    thumbnail: getAsset("sheebahope-homepage.jpg"),
+    thumbnail: getAsset("shebahope-homepage.jpg"),
   },
   whiskas: {
     desktop: {
@@ -279,26 +279,26 @@ const braunrazor: PortfolioItem = {
     { label: "Projects", value: "24" },
   ],
 };
-const sheebahope: PortfolioItem = {
-  id: "sheebahope",
+const shebahope: PortfolioItem = {
+  id: "shebahope",
   title: "Restore Reef: Hope Grows",
-  brand: "Sheeba",
+  brand: "Sheba",
   assets: [
     {
       type: "image",
-      src: assets.sheebahope.thumbnail,
+      src: assets.shebahope.thumbnail,
       thumbnail: {
-        src: assets.sheebahope.thumbnail,
-        alt: "Sheeba Hope Homepage Thumbnail",
+        src: assets.shebahope.thumbnail,
+        alt: "Sheba Hope Homepage Thumbnail",
       },
       alt: "Restore Reef: Hope Grows Homepage",
       title: "Restore Reef: Hope Grows Homepage",
     },
     {
       type: "video",
-      src: getAsset("sheebahope-desktop.mp4"),
+      src: getAsset("shebahope-desktop.mp4"),
       thumbnail: {
-        src: assets.sheebahope.thumbnail,
+        src: assets.shebahope.thumbnail,
         alt: "Restore Reef: Hope Grows Homepage Thumbnail",
       },
       alt: "Restore Reef: Hope Grows Desktop",
@@ -384,6 +384,6 @@ export const portfolioItems: PortfolioItem[] = [
   appleswitcher,
   cocacola,
   loreal,
-  sheebahope,
+  shebahope,
   enterogermina,
 ];
