@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import { Gallery } from "./Gallery";
 import { Icon } from "./Icon";
 
-import styles from "./FullScreenHero.module.scss";
+import styles from "./Portfolio.module.scss";
 
 type PortfolioItemProps = PortfolioItem & {
   onThumbnailClick: (index: number) => void;
@@ -99,7 +99,7 @@ const PortfolioItem = ({
   );
 };
 
-export const FullScreenHero = () => {
+export const Portfolio = () => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [activeAssetIndex, setActiveAssetIndex] = useState<number | undefined>(
     undefined,
@@ -150,6 +150,11 @@ export const FullScreenHero = () => {
     scrollList(1);
   };
 
+  const portfolioAssets = portfolioItems[activeItemIndex].assets;
+
+  const galleryAssets =
+    portfolioAssets.length === 1 ? portfolioAssets : portfolioAssets.slice(1);
+
   return (
     <div id="portfolio" className={styles.PortfolioRoot}>
       <div className={styles.PortfolioControls}>
@@ -182,7 +187,7 @@ export const FullScreenHero = () => {
 
       {typeof activeAssetIndex === "number" && (
         <Gallery
-          assets={portfolioItems[activeItemIndex].assets.slice(1)}
+          assets={galleryAssets}
           activeAssetIndex={activeAssetIndex}
           onClose={() => setActiveAssetIndex(undefined)}
           onChange={(index) => setActiveAssetIndex(index)}

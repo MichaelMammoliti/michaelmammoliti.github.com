@@ -1,7 +1,6 @@
 ---
-import { FirstSlide } from "../components/FirstSlide";
-import { Header } from "../components/Header";
-import { FullScreenHero } from "../components/Portfolio";
+import { Portfolio } from "../components/Portfolio";
+import { Sidebar } from "../components/Sidebar";
 
 import "../styles/reset.scss";
 ---
@@ -22,8 +21,7 @@ import "../styles/reset.scss";
     />
   </head>
   <body>
-    <Header client:load />
-    <FirstSlide client:load />
-    <FullScreenHero client:load />
+    <Sidebar client:load />
+    <Portfolio client:load />
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Anchor } from "./Button";
-import styles from "./FirstSlide.module.scss";
+import styles from "./Sidebar.module.scss";
 
 const assets = {
   profileImage: "/profile-image.jpg",
@@ -46,7 +46,7 @@ const Socials = () => (
   </div>
 );
 
-export const FirstSlide = () => {
+export const Sidebar = () => {
   useEffect(() => {
     const range = [0, 500];
 
@@ -86,8 +86,8 @@ export const FirstSlide = () => {
   }, []);
 
   return (
-    <div className={styles.FirstSlideWrapper}>
-      <div className={styles.FirstSlide} id="profile-section">
+    <div className={styles.SidebarWrapper}>
+      <div className={styles.Sidebar} id="profile-section">
         <div className={styles.Background} />
         <div className={styles.BackgroundOverlay} />
         <div className={styles.Content}>
