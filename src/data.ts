@@ -206,6 +206,16 @@ const loreal: PortfolioItem = {
       alt: "L'Oreal Homepage",
       title: "L'Oreal Homepage",
     },
+    {
+      type: "video",
+      src: getAsset("loreal-desktop.mp4"),
+      thumbnail: {
+        src: assets.loreal.thumbnail,
+        alt: "L'Oreal Homepage Thumbnail",
+      },
+      alt: "L'Oreal Homepage",
+      title: "L'Oreal Homepage",
+    },
   ],
   stats: [
     { label: "Clients", value: "12" },
