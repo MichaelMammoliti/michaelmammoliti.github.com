@@ -36,17 +36,6 @@ const assets = {
     },
     thumbnail: getAsset("enterogermina-homepage.jpg"),
   },
-  appleswitcher: {
-    desktop: {
-      video: getAsset("appleswitcher-desktop.mp4"),
-      thumbnail: getAsset("appleswitcher-desktop-thumb.png"),
-    },
-    mobile: {
-      video: getAsset("appleswitcher-mobile.mp4"),
-      thumbnail: getAsset("appleswitcher-mobile-thumb.png"),
-    },
-    thumbnail: getAsset("appleswitcher-homepage.jpg"),
-  },
   loreal: {
     desktop: {
       video: getAsset("loreal-desktop.mp4"),
@@ -79,17 +68,6 @@ const assets = {
       thumbnail: getAsset("braunrazor-mobile-thumb.png"),
     },
     thumbnail: getAsset("braunrazor-homepage.jpg"),
-  },
-  shebahope: {
-    desktop: {
-      video: getAsset("shebahope-desktop.mp4"),
-      thumbnail: getAsset("shebahope-desktop-thumb.png"),
-    },
-    mobile: {
-      video: getAsset("shebahope-mobile.mp4"),
-      thumbnail: getAsset("shebahope-mobile-thumb.png"),
-    },
-    thumbnail: getAsset("shebahope-homepage.jpg"),
   },
   whiskas: {
     desktop: {
@@ -188,13 +166,23 @@ const appleswitcher: PortfolioItem = {
   assets: [
     {
       type: "image",
-      src: assets.appleswitcher.thumbnail,
+      src: getAsset("apple-homepage.jpg"),
       thumbnail: {
-        src: assets.appleswitcher.thumbnail,
+        src: getAsset("apple-homepage.jpg"),
         alt: "Apple Switcher Homepage Thumbnail",
       },
       alt: "Switch to iPhone Homepage",
       title: "Switch to iPhone Homepage",
+    },
+    {
+      type: "video",
+      src: getAsset("apple-desktop.mp4"),
+      thumbnail: {
+        src: getAsset("apple-homepage.jpg"),
+        alt: "Apple Switcher Desktop Thumbnail",
+      },
+      alt: "Switch to iPhone Desktop",
+      title: "Switch to iPhone Desktop",
     },
   ],
   stats: [
@@ -286,9 +274,9 @@ const shebahope: PortfolioItem = {
   assets: [
     {
       type: "image",
-      src: assets.shebahope.thumbnail,
+      src: getAsset("shebahope-homepage.jpg"),
       thumbnail: {
-        src: assets.shebahope.thumbnail,
+        src: getAsset("shebahope-homepage.jpg"),
         alt: "Sheba Hope Homepage Thumbnail",
       },
       alt: "Restore Reef: Hope Grows Homepage",
@@ -298,12 +286,22 @@ const shebahope: PortfolioItem = {
       type: "video",
       src: getAsset("shebahope-desktop.mp4"),
       thumbnail: {
-        src: assets.shebahope.thumbnail,
-        alt: "Restore Reef: Hope Grows Homepage Thumbnail",
+        src: getAsset("shebahope-desktop-thumb.png"),
+        alt: "Restore Reef: Hope Grows Desktop Thumbnail",
       },
       alt: "Restore Reef: Hope Grows Desktop",
       title: "Restore Reef: Hope Grows Desktop",
     },
+    // {
+    //   type: "video",
+    //   src: getAsset("shebahope-mobile.mp4"),
+    //   thumbnail: {
+    //     src: getAsset("shebahope-mobile-thumb.png"),
+    //     alt: "Restore Reef: Hope Grows Mobile Thumbnail",
+    //   },
+    //   alt: "Restore Reef: Hope Grows Mobile",
+    //   title: "Restore Reef: Hope Grows Mobile",
+    // },
   ],
   stats: [
     { label: "Clients", value: "12" },
